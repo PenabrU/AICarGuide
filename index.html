@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 중고차 구매 가이드 - 김영준 포트폴리오</title>
+    <title>김영준 | AI 풀스택 개발자 포트폴리오</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons CDN -->
@@ -11,12 +11,14 @@
     
     <style>
         /* Inter 폰트 임포트 (Tailwind 기본 폰트) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* bg-slate-50 */
-            color: #334155; /* bg-slate-700 */
+            /* bg-gray-50 */
+            background-color: #f9fafb; 
+            /* bg-slate-700 - 기본 텍스트 색상 */
+            color: #334155; 
         }
 
         /* 링크 스타일 */
@@ -24,14 +26,14 @@
             @apply text-indigo-600 hover:text-indigo-800 transition-colors duration-200;
         }
 
-        /* 기술 스택 배지 */
+        /* 기술 스택 배지 (Teal 색상으로 변경) */
         .skill-badge {
-            @apply inline-block bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full mr-2 mb-2;
+            @apply inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full mr-2 mb-2;
         }
 
-        /* 카드 스타일 */
+        /* 카드 스타일 (그림자, 둥근 모서리, 호버 효과 강화) */
         .card {
-            @apply bg-white shadow-lg rounded-xl overflow-hidden;
+            @apply bg-white shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
         }
 
         /* 섹션 구분 */
@@ -51,8 +53,10 @@
                 <div class="md:flex md:gap-8">
                     <!-- 왼쪽: 소개 -->
                     <div class="flex-1">
-                        <h1 class="text-4xl font-bold text-indigo-800 mb-2">김영준</h1>
-                        <p class="text-xl font-light text-slate-600 mb-6">Google AI와 React/Python을 활용해, 복잡한 중고차 성능기록부를 100점 만점의 리포트로 변환하는 풀스택 개발자입니다.</p>
+                        <!-- 이름에 그라데이션 효과 적용 -->
+                        <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 mb-3">김영준</h1>
+                        <!-- 폰트 두께 Normal (400)로 변경 -->
+                        <p class="text-xl font-normal text-slate-600 mb-8">Google AI와 React/Python을 활용해, 복잡한 중고차 성능기록부를 100점 만점의 리포트로 변환하는 풀스택 개발자입니다.</p>
                         
                         <h2 class="text-2xl font-semibold text-slate-800 mb-4">About Me</h2>
                         <div class="prose prose-lg text-slate-700 max-w-none">
@@ -65,21 +69,15 @@
                         <h2 class="text-2xl font-semibold text-slate-800 mb-4">Contact</h2>
                         <ul class="space-y-4">
                             <li>
-                                <a href="mailto:hello@youngjun.dev" class="flex items-center group">
+                                <a href="mailto:kms7580@naver.com" class="flex items-center group">
                                     <i data-lucide="mail" class="w-5 h-5 mr-3 text-slate-500 group-hover:text-indigo-600"></i>
-                                    <span class="group-hover:underline">hello@youngjun.dev</span>
+                                    <span class="group-hover:underline">kms7580@naver.com</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/yj-kim" target="_blank" rel="noopener noreferrer" class="flex items-center group">
+                                <a href="https://github.com/PenabrU" target="_blank" rel="noopener noreferrer" class="flex items-center group">
                                     <i data-lucide="github" class="w-5 h-5 mr-3 text-slate-500 group-hover:text-indigo-600"></i>
-                                    <span class="group-hover:underline">github.com/yj-kim</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://linkedin.com/in/youngjunkim-dev" target="_blank" rel="noopener noreferrer" class="flex items-center group">
-                                    <i data-lucide="linkedin" class="w-5 h-5 mr-3 text-slate-500 group-hover:text-indigo-600"></i>
-                                    <span class="group-hover:underline">linkedin.com/in/youngjunkim-dev</span>
+                                    <span class="group-hover:underline">github.com/PenabrU</span>
                                 </a>
                             </li>
                         </ul>
@@ -95,6 +93,7 @@
                 <div class="mb-4">
                     <h4 class="text-lg font-semibold text-slate-700 mb-3">프론트엔드</h4>
                     <div>
+                        <!-- .skill-badge 클래스명은 CSS <style> 태그에서 정의됨 -->
                         <span class="skill-badge">React</span>
                         <span class="skill-badge">JavaScript (JSX)</span>
                         <span class="skill-badge">HTML</span>
@@ -130,13 +129,13 @@
                 <div class="prose prose-lg text-slate-700 max-w-none">
                     
                     <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="help-circle" class="w-5 h-5 mr-2 stroke-[2.5]"></i>
+                        <i data-lucide="help-circle" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
                         문제 정의
                     </h3>
                     <p>중고차 '성능·상태 점검기록부' 해독의 어려움과 정보 비대칭으로 인한 소비자 불안 문제를 AI 기술로 해결하고자 했습니다.</p>
 
                     <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="layout-grid" class="w-5 h-5 mr-2 stroke-[2.5]"></i>
+                        <i data-lucide="layout-grid" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
                         아키텍처/설계
                     </h3>
                     <p>React 프론트엔드와 Python/Flask 백엔드로 구성된 풀스택 AI 앱입니다.</p>
@@ -147,13 +146,13 @@
                     </ol>
 
                     <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="star" class="w-5 h-5 mr-2 stroke-[2.5]"></i>
+                        <i data-lucide="star" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
                         핵심 기능 1: Google AI (Document AI + Gemini)를 활용한 성능기록부 자동 분석
                     </h3>
                     <p>사용자가 성능기록부(PDF/이미지)를 업로드하면, 백엔드에서 OCR로 텍스트를 추출하고 OCR 오류를 보정합니다. 이후 Gemini AI가 텍스트를 분석하여, 사고 이력, 누유, 적정 시세, 위험도 점수(0-100)가 포함된 상세 JSON 리포트를 생성합니다.</p>
 
                     <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="zap" class="w-5 h-5 mr-2 stroke-[2.5]"></i>
+                        <i data-lucide="zap" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
                         핵심 기능 2: Gemini AI 기반 맞춤형 차량 추천 및 리포트 Q&A 챗봇
                     </h3>
                     <ol>
@@ -162,7 +161,7 @@
                     </ol>
 
                     <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="user-check" class="w-5 h-5 mr-2 stroke-[2.5]"></i>
+                        <i data-lucide="user-check" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
                         나의 역할 및 기여
                     </h3>
                     <p>(1인 프로젝트 기준)</p>
@@ -174,7 +173,7 @@
                     </ul>
 
                     <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="trophy" class="w-5 h-5 mr-2 stroke-[2.5]"></i>
+                        <i data-lucide="trophy" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
                         결과 및 성과
                     </h3>
                     <ul>
@@ -184,19 +183,24 @@
                     </ul>
 
                     <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="book-open" class="w-5 h-5 mr-2 stroke-[2.5]"></i>
+                        <i data-lucide="book-open" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
                         회고 (배운 점)
                     </h3>
                     <p>Google AI(OCR/LLM)를 연동한 'OCR -> LLM 분석' AI 파이프라인 구축 경험을 얻었으며, 프롬프트 엔지니어링을 통해 비즈니스 요구사항에 맞는 구조화된 데이터를 생성하는 역량을 확보했습니다.</p>
 
                     <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="arrow-up-right" class="w-5 h-5 mr-2 stroke-[2.5]"></i>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
                         회고 (개선점)
                     </h3>
                     <p>향후 챗봇 API에 Gemini 채팅 세션(History) 기능을 도입해 컨텍스트를 기억하도록 개선하고, OCR 오류 보정 로직을 고도화할 계획입니다.</p>
                 </div>
             </div>
         </section>
+
+        <!-- 푸터 추가 -->
+        <footer class="text-center mt-12 py-6 border-t border-slate-200">
+            <p class="text-sm text-slate-500">© 2025 김영준. All rights reserved.</p>
+        </footer>
 
     </div>
 
