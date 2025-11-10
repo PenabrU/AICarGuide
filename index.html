@@ -12,85 +12,93 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            color: #e2e8f0; /* text-gray-200 */
-            
-            /* --- 참고 사이트 스타일 적용: 애니메이션 그라데이션 배경 --- */
-            background: linear-gradient(-45deg, #23a6d5, #23d5ab, #e73c7e, #ee7752);
-            background-size: 400% 400%;
-            animation: gradient-animation 15s ease infinite;
-            height: 100%;
-            overflow-x: hidden;
+            /* --- 전문적인 '상용 페이지' 디자인 --- */
+            background-color: #f1f5f9; /* bg-slate-100 (연한 회색 배경) */
+            color: #1f2937; /* text-gray-800 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
-        @keyframes gradient-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        /* --------------------------------------------------------- */
 
-        /* 링크 스타일 (새 테마) */
+        /* 링크 스타일 (Indigo 테마) */
         a {
-            @apply text-blue-400 hover:text-blue-300 transition-colors duration-200;
+            @apply text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200;
         }
 
-        /* 기술 스택 배지 (새 테마) */
+        /* 기술 스택 배지 (Indigo 테마) */
         .skill-badge {
-            @apply inline-block bg-blue-900 text-blue-300 text-sm font-semibold px-4 py-1 rounded-full mr-2 mb-2 transition-all duration-200 hover:bg-blue-800 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-px;
+            @apply inline-block bg-indigo-100 text-indigo-700 text-sm font-medium px-4 py-1 rounded-full mr-2 mb-2;
         }
         
-        /* 카드 스타일 (유리 효과) */
-        .card {
-            /* 반투명 배경 + 백드롭 블러 */
-            @apply bg-gray-900/80 backdrop-blur-md 
-                   border border-gray-700/50 
-                   shadow-2xl rounded-2xl 
-                   transition-all duration-300;
+        /* 프로젝트 상세 항목 아이콘 (Indigo 테마) */
+        .detail-icon {
+            @apply flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 mr-3;
+        }
+        
+        /* 본문(prose) 스타일 오버라이드 */
+        .prose {
+            color: #374151; /* text-gray-700 */
+        }
+        .prose h3 {
+            color: #111827; /* text-gray-900 */
+        }
+        .prose strong {
+            color: #1f2937; /* text-gray-800 */
+        }
+        /* prose 내부 링크도 indigo 테마 적용 */
+        .prose a {
+            @apply text-indigo-600 font-medium hover:text-indigo-800;
+        }
+        /* prose ol/ul 마커 색상 */
+        .prose :is(ol,ul) > li::marker {
+            @apply text-indigo-500;
         }
 
-        /* 섹션 구분 */
-        section:not(:last-child) {
-            @apply mb-12;
-        }
 
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- 단일 컬럼 중앙 정렬 레이아웃 -->
-    <div class="container mx-auto max-w-4xl p-6 md:p-12">
+    <!-- 
+      메인 '페이지 카드' 컨테이너 
+      - bg-white 카드
+      - shadow-xl 그림자
+      - rounded-2xl 둥근 모서리
+      - my-12/my-24 상하 여백
+    -->
+    <div class="container mx-auto max-w-4xl my-12 md:my-24 p-8 md:p-16 bg-white shadow-xl rounded-2xl">
 
-        <!-- 1. 기본 정보 (Hero & Contact) -->
-        <section class="card p-8 md:p-10 text-center">
+        <!-- 1. 기본 정보 (헤더) -->
+        <header class="mb-12">
             <!-- 이름 -->
-            <h1 class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-10 leading-tight">김영준</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-600 mb-6">김영준</h1>
             
             <!-- 연락처 -->
-            <div>
-                <h2 class="text-3xl font-bold text-blue-400 mb-6">Contact</h2>
-                <ul class="flex flex-col md:flex-row justify-center items-center gap-6">
-                    <li>
-                        <a href="mailto:kms7580@naver.com" class="flex items-center group">
-                            <i data-lucide="mail" class="w-6 h-6 mr-3 text-blue-400 group-hover:text-blue-300"></i>
-                            <span class="group-hover:underline text-gray-200 text-lg">kms7580@naver.com</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/PenabrU" target="_blank" rel="noopener noreferrer" class="flex items-center group">
-                            <i data-lucide="github" class="w-6 h-6 mr-3 text-blue-400 group-hover:text-blue-300"></i>
-                            <span class="group-hover:underline text-gray-200 text-lg">github.com/PenabrU</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
+            <ul class="flex flex-col md:flex-row items-start gap-4 md:gap-8 text-base">
+                <li>
+                    <a href="mailto:kms7580@naver.com" class="flex items-center group">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2 text-indigo-500"></i>
+                        <span class="group-hover:underline">kms7580@naver.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/PenabrU" target="_blank" rel="noopener noreferrer" class="flex items-center group">
+                        <i data-lucide="github" class="w-5 h-5 mr-2 text-indigo-500"></i>
+                        <span class="group-hover:underline">github.com/PenabrU</span>
+                    </a>
+                </li>
+            </ul>
+        </header>
+
+        <!-- 구분선 -->
+        <hr class="my-12 border-gray-200">
 
         <!-- 2. 전체 기술 스택 (Skills) -->
-        <section>
-            <h2 class="text-4xl font-extrabold text-white text-center mb-8">전체 기술 스택 (Skills)</h2>
-            <div class="card p-8 md:p-10">
-                <div class="mb-6">
-                    <h4 class="text-xl font-semibold text-gray-200 mb-3">프론트엔드</h4>
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-indigo-600 mb-8">전체 기술 스택 (Skills)</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-700 mb-3">프론트엔드</h4>
                     <div>
                         <span class="skill-badge">React</span>
                         <span class="skill-badge">JavaScript (JSX)</span>
@@ -99,8 +107,8 @@
                         <span class="skill-badge">Vite</span>
                     </div>
                 </div>
-                <div class="mb-6">
-                    <h4 class="text-xl font-semibold text-gray-200 mb-3">백엔드</h4>
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-700 mb-3">백엔드</h4>
                     <div>
                         <span class="skill-badge">Python</span>
                         <span class="skill-badge">Flask</span>
@@ -109,7 +117,7 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-xl font-semibold text-gray-200 mb-3">Tools & Libraries</h4>
+                    <h4 class="text-lg font-semibold text-gray-700 mb-3">Tools & Libraries</h4>
                     <div>
                         <span class="skill-badge">Git</span>
                         <span class="skill-badge">Flask-CORS</span>
@@ -119,103 +127,102 @@
             </div>
         </section>
 
+        <!-- 구분선 -->
+        <hr class="my-12 border-gray-200">
+
         <!-- 3. 프로젝트 상세 -->
         <section>
-            <h2 class="text-4xl font-extrabold text-white text-center mb-8">프로젝트: AI 중고차 구매 가이드</h2>
+            <h2 class="text-3xl font-bold text-indigo-600 mb-8">프로젝트: AI 중고차 구매 가이드</h2>
             
-            <div class="card p-8 md:p-10">
-                <!-- prose-invert로 다크모드 본문 가독성 확보 -->
-                <div class="prose prose-lg prose-invert text-gray-300 max-w-none">
-                    
-                    <h3 class="flex items-center text-2xl font-bold text-gray-100 mb-4 mt-8">
-                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white mr-3 shadow-md">
-                            <i data-lucide="help-circle" class="w-5 h-5"></i>
-                        </span>
-                        문제 정의
-                    </h3>
-                    <p>중고차 '성능·상태 점검기록부' 해독의 어려움과 정보 비대칭으로 인한 소비자 불안 문제를 AI 기술로 해결하고자 했습니다.</p>
+            <div class="prose prose-lg max-w-none leading-relaxed">
+                
+                <h3 class="flex items-center text-xl font-semibold mb-3 mt-8">
+                    <span class="detail-icon">
+                        <i data-lucide="help-circle" class="w-5 h-5"></i>
+                    </span>
+                    문제 정의
+                </h3>
+                <p>중고차 '성능·상태 점검기록부' 해독의 어려움과 정보 비대칭으로 인한 소비자 불안 문제를 AI 기술로 해결하고자 했습니다.</p>
 
-                    <h3 class="flex items-center text-2xl font-bold text-gray-100 mb-4 mt-8">
-                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white mr-3 shadow-md">
-                            <i data-lucide="layout-grid" class="w-5 h-5"></i>
-                        </span>
-                        아키텍처/설계
-                    </h3>
-                    <p>React 프론트엔드와 Python/Flask 백엔드로 구성된 AI 앱입니다.</p>
-                    <ol>
-                        <li><strong>Frontend (React):</strong> 파일 업로드, 라이프스타일 입력, 결과 확인, 챗봇 등 UI 구현. `fetch`로 백엔드와 비동기 통신.</li>
-                        <li><strong>Backend (Flask):</strong> 핵심 AI API 엔드포인트 3개(`/api/upload`, `/api/recommend`, `/api/ask-report`) 구현.</li>
-                        <li><strong>AI/OCR 연동:</strong> Google Document AI (OCR)로 텍스트를 추출하고, Gemini AI로 JSON 리포트 생성, 추천, Q&A 수행.</li>
-                    </ol>
+                <h3 class="flex items-center text-xl font-semibold mb-3 mt-8">
+                    <span class="detail-icon">
+                        <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                    </span>
+                    아키텍처/설계
+                </h3>
+                <p>React 프론트엔드와 Python/Flask 백엔드로 구성된 AI 앱입니다.</p>
+                <ol>
+                    <li><strong>Frontend (React):</strong> 파일 업로드, 라이프스타일 입력, 결과 확인, 챗봇 등 UI 구현. `fetch`로 백엔드와 비동기 통신.</li>
+                    <li><strong>Backend (Flask):</strong> 핵심 AI API 엔드포인트 3개(`/api/upload`, `/api/recommend`, `/api/ask-report`) 구현.</li>
+                    <li><strong>AI/OCR 연동:</strong> Google Document AI (OCR)로 텍스트를 추출하고, Gemini AI로 JSON 리포트 생성, 추천, Q&A 수행.</li>
+                </ol>
 
-                    <h3 class="flex items-center text-2xl font-bold text-gray-100 mb-4 mt-8">
-                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white mr-3 shadow-md">
-                            <i data-lucide="star" class="w-5 h-5"></i>
-                        </span>
-                        핵심 기능 1: Google AI (Document AI + Gemini)를 활용한 성능기록부 자동 분석
-                    </h3>
-                    <p>사용자가 성능기록부(PDF/이미지)를 업로드하면, 백엔드에서 OCR로 텍스트를 추출하고 OCR 오류를 보정합니다. 이후 Gemini AI가 텍스트를 분석하여, 사고 이력, 누유, 적정 시세, 위험도 점수(0-100)가 포함된 상세 JSON 리포트를 생성합니다.</p>
+                <h3 class="flex items-center text-xl font-semibold mb-3 mt-8">
+                    <span class="detail-icon">
+                        <i data-lucide="star" class="w-5 h-5"></i>
+                    </span>
+                    핵심 기능 1: Google AI (Document AI + Gemini)를 활용한 성능기록부 자동 분석
+                </h3>
+                <p>사용자가 성능기록부(PDF/이미지)를 업로드하면, 백엔드에서 OCR로 텍스트를 추출하고 OCR 오류를 보정합니다. 이후 Gemini AI가 텍스트를 분석하여, 사고 이력, 누유, 적정 시세, 위험도 점수(0-100)가 포함된 상세 JSON 리포트를 생성합니다.</p>
 
-                    <h3 class="flex items-center text-2xl font-bold text-gray-100 mb-4 mt-8">
-                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white mr-3 shadow-md">
-                            <i data-lucide="zap" class="w-5 h-5"></i>
-                        </span>
-                        핵심 기능 2: Gemini AI 기반 맞춤형 중고차 추천 및 리포트 Q&A 챗봇
-                    </h3>
-                    <ol>
-                        <li><strong>AI 맞춤 추천:</strong> 라이프스타일(예: '30대, 주말 캠핑, 2천만 원')을 입력하면 AI가 예산, 용도 등을 고려해 최적 중고차 3가지를 추천 이유, 시세와 함께 JSON으로 반환합니다.</li>
-                        <li><strong>리포트 Q&A 챗봇:</strong> 생성된 리포트와 사용자 질문(예: "누유 심각한가요?")을 AI에 전달하여, 리포트 내용에 기반한 정확한 답변을 실시간 제공합니다.</li>
-                    </ol>
+                <h3 class="flex items-center text-xl font-semibold mb-3 mt-8">
+                    <span class="detail-icon">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                    </span>
+                    핵심 기능 2: Gemini AI 기반 맞춤형 중고차 추천 및 리포트 Q&A 챗봇
+                </h3>
+                <ol>
+                    <li><strong>AI 맞춤 추천:</strong> 라이프스타일(예: '30대, 주말 캠핑, 2천만 원')을 입력하면 AI가 예산, 용도 등을 고려해 최적 중고차 3가지를 추천 이유, 시세와 함께 JSON으로 반환합니다.</li>
+                    <li><strong>리포트 Q&A 챗봇:</strong> 생성된 리포트와 사용자 질문(예: "누유 심각한가요?")을 AI에 전달하여, 리포트 내용에 기반한 정확한 답변을 실시간 제공합니다.</li>
+                </ol>
 
-                    <h3 class="flex items-center text-2xl font-bold text-gray-100 mb-4 mt-8">
-                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white mr-3 shadow-md">
-                            <i data-lucide="user-check" class="w-5 h-5"></i>
-                        </span>
-                        나의 역할 및 기여
-                    </h3>
-                    <p>(1인 프로젝트 기준)</p>
-                    <ul>
-                        <li>React 프론트엔드 UI/UX 설계 및 전체 컴포넌트(`App`, `AnalysisReport` 등) 개발</li>
-                        <li>Python/Flask 백엔드 REST API 서버 및 3가지 핵심 AI 엔드포인트 구축</li>
-                        <li>Google Document AI (OCR)와 Gemini AI를 연동하는 핵심 AI 파이프라인 설계</li>
-                        <li>Gemini AI의 JSON 모드 활용 및 OCR 오류 보정 로직을 포함한 프롬프트 엔지니어링 수행</li>
-                    </ul>
+                <h3 class="flex items-center text-xl font-semibold mb-3 mt-8">
+                    <span class="detail-icon">
+                        <i data-lucide="user-check" class="w-5 h-5"></i>
+                    </span>
+                    나의 역할 및 기여
+                </h3>
+                <p>(1인 프로젝트 기준)</p>
+                <ul>
+                    <li>React 프론트엔드 UI/UX 설계 및 전체 컴포넌트(`App`, `AnalysisReport` 등) 개발</li>
+                    <li>Python/Flask 백엔드 REST API 서버 및 3가지 핵심 AI 엔드포인트 구축</li>
+                    <li>Google Document AI (OCR)와 Gemini AI를 연동하는 핵심 AI 파이프라인 설계</li>
+                    <li>Gemini AI의 JSON 모드 활용 및 OCR 오류 보정 로직을 포함한 프롬프트 엔지니어링 수행</li>
+                </ul>
 
-                    <h3 class="flex items-center text-2xl font-bold text-gray-100 mb-4 mt-8">
-                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white mr-3 shadow-md">
-                            <i data-lucide="trophy" class="w-5 h-5"></i>
-                        </span>
-                        결과 및 성과
-                    </h3>
-                    <ul>
-                        <li>복잡한 성능기록부를 'AI 위험도 점수'와 '예측 시세'가 포함된 직관적인 JSON 리포트로 자동 변환하는 시스템 구축</li>
-                        <li>OCR 분석, 맞춤형 추천, Q&A 챗봇이라는 3가지 핵심 AI 기능을 Gemini AI로 성공적으로 통합</li>
-                        <li>React와 Python/Flask를 연동하는 AI 웹 애플리케이션 개발 프로세스 완료</li>
-                    </ul>
+                <h3 class="flex items-center text-xl font-semibold mb-3 mt-8">
+                    <span class="detail-icon">
+                        <i data-lucide="trophy" class="w-5 h-5"></i>
+                    </span>
+                    결과 및 성과
+                </h3>
+                <ul>
+                    <li>복잡한 성능기록부를 'AI 위험도 점수'와 '예측 시세'가 포함된 직관적인 JSON 리포트로 자동 변환하는 시스템 구축</li>
+                    <li>OCR 분석, 맞춤형 추천, Q&A 챗봇이라는 3가지 핵심 AI 기능을 Gemini AI로 성공적으로 통합</li>
+                    <li>React와 Python/Flask를 연동하는 AI 웹 애플리케이션 개발 프로세스 완료</li>
+                </ul>
 
-                    <h3 class="flex items-center text-2xl font-bold text-gray-100 mb-4 mt-8">
-                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white mr-3 shadow-md">
-                            <i data-lucide="book-open" class="w-5 h-5"></i>
-                        </span>
-                        회고 (배운 점)
-                    </h3>
-                    <p>Google AI(OCR/LLM)를 연동한 'OCR -> LLM 분석' AI 파이프라인 구축 경험을 얻었으며, 프롬프트 엔지니어링을 통해 비즈니스 요구사항에 맞는 구조화된 데이터를 생성하는 역량을 확보했습니다.</p>
+                <h3 class="flex items-center text-xl font-semibold mb-3 mt-8">
+                    <span class="detail-icon">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                    </span>
+                    회고 (배운 점)
+                </h3>
+                <p>Google AI(OCR/LLM)를 연동한 'OCR -> LLM 분석' AI 파이프라인 구축 경험을 얻었으며, 프롬프트 엔지니어링을 통해 비즈니스 요구사항에 맞는 구조화된 데이터를 생성하는 역량을 확보했습니다.</p>
 
-Moves:
-                    <h3 class="flex items-center text-2xl font-bold text-gray-100 mb-4 mt-8">
-                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white mr-3 shadow-md">
-                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-                        </span>
-                        회고 (개선점)
-                    </h3>
-                    <p>향후 챗봇 API에 Gemini 채팅 세션(History) 기능을 도입해 컨텍스트를 기억하도록 개선하고, OCR 오류 보정 로직을 고도화할 계획입니다.</p>
-                </div>
+                <h3 class="flex items-center text-xl font-semibold mb-3 mt-8">
+                    <span class="detail-icon">
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </span>
+                    회고 (개선점)
+                </h3>
+                <p>향후 챗봇 API에 Gemini 채팅 세션(History) 기능을 도입해 컨텍스트를 기억하도록 개선하고, OCR 오류 보정 로직을 고도화할 계획입니다.</p>
             </div>
         </section>
 
         <!-- 푸터 -->
-        <footer class="text-center mt-12 py-6">
-            <p class="text-sm text-gray-300/70">© 2025 김영준. All rights reserved.</p>
+        <footer class="text-center mt-16 pt-12 border-t border-gray-200">
+            <p class="text-sm text-gray-500">© 2025 김영준. All rights reserved.</p>
         </footer>
         
     </div>
