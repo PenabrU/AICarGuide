@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>김영준 | AI 풀스택 개발자 포트폴리오</title>
+    <!-- '풀스택' 제거 -->
+    <title>김영준 | AI 개발자 포트폴리오</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons CDN -->
@@ -15,8 +16,9 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            /* bg-gray-50 */
-            background-color: #f9fafb; 
+            /* 배경을 미세한 그라데이션으로 변경 */
+            background-color: #f9fafb; /* bg-gray-50 */
+            @apply bg-gradient-to-br from-white via-white to-gray-100;
             /* bg-slate-700 - 기본 텍스트 색상 */
             color: #334155; 
         }
@@ -26,14 +28,14 @@
             @apply text-indigo-600 hover:text-indigo-800 transition-colors duration-200;
         }
 
-        /* 기술 스택 배지 (Teal 색상으로 변경) */
+        /* 기술 스택 배지 (호버 효과 추가) */
         .skill-badge {
-            @apply inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full mr-2 mb-2;
+            @apply inline-block bg-teal-50 text-teal-700 text-sm font-semibold px-4 py-1 rounded-full mr-2 mb-2 transition-all duration-200 hover:bg-teal-100 hover:shadow-md hover:-translate-y-px;
         }
 
-        /* 카드 스타일 (그림자, 둥근 모서리, 호버 효과 강화) */
+        /* 카드 스타일 (호버 시 링 효과 추가) */
         .card {
-            @apply bg-white shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+            @apply bg-white shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:ring-4 hover:ring-indigo-300;
         }
 
         /* 섹션 구분 */
@@ -55,12 +57,12 @@
                     <div class="flex-1">
                         <!-- 이름에 그라데이션 효과 적용 -->
                         <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 mb-3">김영준</h1>
-                        <!-- 폰트 두께 Normal (400)로 변경 -->
-                        <p class="text-xl font-normal text-slate-600 mb-8">Google AI와 React/Python을 활용해, 복잡한 중고차 성능기록부를 100점 만점의 리포트로 변환하는 풀스택 개발자입니다.</p>
+                        <!-- '풀스택' 제거, 폰트 크기 2xl로 키움 -->
+                        <p class="text-2xl font-normal text-slate-600 mb-8">Google AI와 React/Python을 활용해, 복잡한 중고차 성능기록부를 100점 만점의 리포트로 변환하는 AI 개발자입니다.</p>
                         
                         <h2 class="text-2xl font-semibold text-slate-800 mb-4">About Me</h2>
                         <div class="prose prose-lg text-slate-700 max-w-none">
-                            <p>저는 기술로 사용자의 복잡한 문제를 '단순하고 명확하게' 해결하는 것을 목표로 합니다. 중고차 시장의 정보 비대칭과 불안 문제를 해결하기 위해 React/Python 풀스택 역량을 기반으로, Google Document AI(OCR)와 Gemini 모델을 연동한 엔드투엔드 AI 분석 파이프라인을 구축했습니다.</p>
+                            <p>저는 기술로 사용자의 복잡한 문제를 '단순하고 명확하게' 해결하는 것을 목표로 합니다. 중고차 시장의 정보 비대칭과 불안 문제를 해결하기 위해 React/Python 역량을 기반으로, Google Document AI(OCR)와 Gemini 모델을 연동한 엔드투엔드 AI 분석 파이프라인을 구축했습니다.</p>
                         </div>
                     </div>
                     
@@ -128,31 +130,40 @@
             <div class="card p-8 md:p-10">
                 <div class="prose prose-lg text-slate-700 max-w-none">
                     
-                    <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="help-circle" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
+                    <!-- h3 섹션 디자인 변경 -->
+                    <h3 class="flex items-center text-2xl font-bold text-slate-800 mb-4 mt-8">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 mr-3">
+                            <i data-lucide="help-circle" class="w-5 h-5"></i>
+                        </span>
                         문제 정의
                     </h3>
                     <p>중고차 '성능·상태 점검기록부' 해독의 어려움과 정보 비대칭으로 인한 소비자 불안 문제를 AI 기술로 해결하고자 했습니다.</p>
 
-                    <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="layout-grid" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
+                    <h3 class="flex items-center text-2xl font-bold text-slate-800 mb-4 mt-8">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 mr-3">
+                            <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                        </span>
                         아키텍처/설계
                     </h3>
-                    <p>React 프론트엔드와 Python/Flask 백엔드로 구성된 풀스택 AI 앱입니다.</p>
+                    <p>React 프론트엔드와 Python/Flask 백엔드로 구성된 AI 앱입니다.</p>
                     <ol>
                         <li><strong>Frontend (React):</strong> 파일 업로드, 라이프스타일 입력, 결과 확인, 챗봇 등 UI 구현. `fetch`로 백엔드와 비동기 통신.</li>
                         <li><strong>Backend (Flask):</strong> 핵심 AI API 엔드포인트 3개(`/api/upload`, `/api/recommend`, `/api/ask-report`) 구현.</li>
                         <li><strong>AI/OCR 연동:</strong> Google Document AI (OCR)로 텍스트를 추출하고, Gemini AI로 JSON 리포트 생성, 추천, Q&A 수행.</li>
                     </ol>
 
-                    <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="star" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
+                    <h3 class="flex items-center text-2xl font-bold text-slate-800 mb-4 mt-8">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 mr-3">
+                            <i data-lucide="star" class="w-5 h-5"></i>
+                        </span>
                         핵심 기능 1: Google AI (Document AI + Gemini)를 활용한 성능기록부 자동 분석
                     </h3>
                     <p>사용자가 성능기록부(PDF/이미지)를 업로드하면, 백엔드에서 OCR로 텍스트를 추출하고 OCR 오류를 보정합니다. 이후 Gemini AI가 텍스트를 분석하여, 사고 이력, 누유, 적정 시세, 위험도 점수(0-100)가 포함된 상세 JSON 리포트를 생성합니다.</p>
 
-                    <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="zap" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
+                    <h3 class="flex items-center text-2xl font-bold text-slate-800 mb-4 mt-8">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 mr-3">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                        </span>
                         핵심 기능 2: Gemini AI 기반 맞춤형 차량 추천 및 리포트 Q&A 챗봇
                     </h3>
                     <ol>
@@ -160,8 +171,10 @@
                         <li><strong>리포트 Q&A 챗봇:</strong> 생성된 리포트와 사용자 질문(예: "누유 심각한가요?")을 AI에 전달하여, 리포트 내용에 기반한 정확한 답변을 실시간 제공합니다.</li>
                     </ol>
 
-                    <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="user-check" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
+                    <h3 class="flex items-center text-2xl font-bold text-slate-800 mb-4 mt-8">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 mr-3">
+                            <i data-lucide="user-check" class="w-5 h-5"></i>
+                        </span>
                         나의 역할 및 기여
                     </h3>
                     <p>(1인 프로젝트 기준)</p>
@@ -172,24 +185,30 @@
                         <li>Gemini AI의 JSON 모드 활용 및 OCR 오류 보정 로직을 포함한 프롬프트 엔지니어링 수행</li>
                     </ul>
 
-                    <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="trophy" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
+                    <h3 class="flex items-center text-2xl font-bold text-slate-800 mb-4 mt-8">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 mr-3">
+                            <i data-lucide="trophy" class="w-5 h-5"></i>
+                        </span>
                         결과 및 성과
                     </h3>
                     <ul>
                         <li>복잡한 성능기록부를 'AI 위험도 점수'와 '예측 시세'가 포함된 직관적인 JSON 리포트로 자동 변환하는 시스템 구축</li>
                         <li>OCR 분석, 맞춤형 추천, Q&A 챗봇이라는 3가지 핵심 AI 기능을 Gemini AI로 성공적으로 통합</li>
-                        <li>React와 Python/Flask를 연동하는 풀스택 AI 웹 애플리케이션 개발 프로세스 완료</li>
+                        <li>React와 Python/Flask를 연동하는 AI 웹 애플리케이션 개발 프로세스 완료</li>
                     </ul>
 
-                    <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="book-open" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
+                    <h3 class="flex items-center text-2xl font-bold text-slate-800 mb-4 mt-8">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 mr-3">
+                            <i data-lucide="book-open" class="w-5 h-5"></i>
+                        </span>
                         회고 (배운 점)
                     </h3>
                     <p>Google AI(OCR/LLM)를 연동한 'OCR -> LLM 분석' AI 파이프라인 구축 경험을 얻었으며, 프롬프트 엔지니어링을 통해 비즈니스 요구사항에 맞는 구조화된 데이터를 생성하는 역량을 확보했습니다.</p>
 
-                    <h3 class="flex items-center text-xl font-semibold text-indigo-700 mb-4 mt-8">
-                        <i data-lucide="arrow-up-right" class="w-5 h-5 mr-2 stroke-[2.5] text-indigo-500"></i>
+                    <h3 class="flex items-center text-2xl font-bold text-slate-800 mb-4 mt-8">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 mr-3">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                        </span>
                         회고 (개선점)
                     </h3>
                     <p>향후 챗봇 API에 Gemini 채팅 세션(History) 기능을 도입해 컨텍스트를 기억하도록 개선하고, OCR 오류 보정 로직을 고도화할 계획입니다.</p>
