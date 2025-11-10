@@ -5,54 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>김영준 | AI 개발자 포트폴리오</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            /* (변경) 배경색: stone-50 -> gray-50 */
-            background-color: #f9fafb; /* bg-gray-50 */
-            color: #44403c; /* text-stone-700 (유지) */
+            /* (변경) 배경색: bg-gray-50 -> bg-gray-900 (다크 모드) */
+            background-color: #1a202c; /* bg-gray-900 */
+            /* (변경) 기본 텍스트 색상: text-stone-700 -> text-gray-200 */
+            color: #e2e8f0; /* text-gray-200 */
         }
         .nav-link {
-            /* (변경) hover: blue -> teal */
-            @apply px-3 py-2 rounded-md text-sm font-medium text-stone-700 hover:bg-teal-100 hover:text-teal-700 transition-colors;
+            /* (변경) 텍스트 색상: text-stone-700 -> text-gray-200 */
+            /* (변경) hover: bg-teal-100/text-teal-700 -> bg-teal-700/text-white */
+            @apply px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:bg-teal-700 hover:text-white transition-colors;
         }
         .nav-link.active {
-            /* (변경) active: blue -> teal */
-            @apply bg-teal-600 text-white hover:bg-teal-700 hover:text-white;
+            /* (변경) active: bg-teal-600/text-white -> bg-teal-500/text-white */
+            @apply bg-teal-500 text-white hover:bg-teal-600 hover:text-white;
         }
         .step-box {
-            @apply bg-white p-4 rounded-lg shadow-md text-center flex-1 min-w-[150px] border-2 border-transparent;
+            /* (변경) 배경색: bg-white -> bg-gray-800 */
+            /* (변경) 텍스트 색상: text-stone-500 -> text-gray-400 */
+            @apply bg-gray-800 p-4 rounded-lg shadow-md text-center flex-1 min-w-[150px] border-2 border-transparent;
         }
         .step-arrow {
-            @apply text-3xl text-stone-400 mx-2 hidden md:block;
+            /* (변경) 텍스트 색상: text-stone-400 -> text-gray-400 */
+            @apply text-3xl text-gray-400 mx-2 hidden md:block;
         }
         html {
             scroll-behavior: smooth;
         }
-        /* (변경) 기술 스택 배지: stone border -> teal background */
         .skill-badge {
-            @apply inline-block px-4 py-1 rounded-full text-sm font-semibold bg-teal-100 text-teal-800 mr-2 mb-2;
+            /* (변경) 스킬 배지 색상: bg-teal-100/text-teal-800 -> bg-teal-700/text-white */
+            @apply inline-block px-4 py-1 rounded-full text-sm font-semibold bg-teal-700 text-white mr-2 mb-2;
+        }
+        /* 카드 제목 색상 */
+        .card-title-dark {
+            @apply text-2xl font-bold mb-4 text-teal-400; /* 다크 모드에 맞는 제목 색상 */
+        }
+        /* 본문 텍스트 색상 */
+        .text-content-dark {
+            @apply text-gray-300;
+        }
+        /* 강조 텍스트 색상 */
+        .text-highlight-dark {
+            @apply text-teal-300;
         }
     </style>
 </head>
-<!-- (변경) bg-stone-50 -> bg-gray-50 -->
-<body class="bg-gray-50 text-stone-800">
+<body class="bg-gray-900 text-gray-200">
 
     <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md shadow-sm">
+    <nav class="sticky top-0 z-50 w-full bg-gray-900/80 backdrop-blur-md shadow-sm">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
-                    <!-- (변경) blue -> teal -->
-                    <span class="text-xl font-bold text-teal-600">AI 중고차 가이드 (김영준)</span>
+                    <span class="text-xl font-bold text-teal-400">AI 중고차 가이드 (김영준)</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="#intro" class="nav-link active">소개</a>
-                        <!-- (수정) '기술 스택' 메뉴 추가, '주요 기능' -> '프로젝트'로 변경 -->
                         <a href="#skills" class="nav-link">기술 스택</a>
                         <a href="#solution" class="nav-link">솔루션</a>
                         <a href="#project" class="nav-link">프로젝트</a>
@@ -67,41 +79,37 @@
 
         <!-- Section 1: Introduction (About Me & Project) -->
         <section id="intro" class="pt-16 -mt-16">
-            <h2 class="text-3xl font-bold text-center mb-8">프로젝트 소개</h2>
+            <h2 class="text-3xl font-bold text-center mb-8">📄 프로젝트 소개</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- About Me Card -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <!-- (변경) blue -> teal -->
-                    <h3 class="text-2xl font-bold mb-4 text-teal-700">🧑‍💻 개발자: 김영준</h3>
-                    <p class="text-lg font-semibold text-stone-600 mb-3">"AI로 복잡한 문제를 분석하고, 더 나은 사용자 경험을 만드는 개발자"</p>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg h-full">
+                    <h3 class="card-title-dark">🧑‍💻 개발자: 김영준</h3>
+                    <p class="text-lg font-semibold text-gray-300 mb-3">"AI로 복잡한 문제를 분석하고, 더 나은 사용자 경험을 만드는 개발자"</p>
                     <!-- 연락처 -->
                     <ul class="flex flex-col space-y-2 text-base mt-4">
                         <li>
                             <a href="mailto:kms7580@naver.com" class="flex items-center group">
-                                <!-- (변경) blue -> teal -->
-                                <i data-lucide="mail" class="w-5 h-5 mr-2 text-teal-700"></i>
-                                <span class="group-hover:underline">kms7580@naver.com</span>
+                                <span class="text-teal-400 mr-2">📧</span>
+                                <span class="group-hover:underline text-gray-300">kms7580@naver.com</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://github.com/PenabrU" target="_blank" rel="noopener noreferrer" class="flex items-center group">
-                                <!-- (변경) blue -> teal -->
-                                <i data-lucide="github" class="w-5 h-5 mr-2 text-teal-700"></i>
-                                <span class="group-hover:underline">github.com/PenabrU</span>
+                                <span class="text-teal-400 mr-2">🐙</span>
+                                <span class="group-hover:underline text-gray-300">github.com/PenabrU</span>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <!-- Project Overview Card -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <!-- (변경) emerald -> teal -->
-                    <h3 class="text-2xl font-bold mb-4 text-teal-700">🎯 개발 배경 및 목표</h3>
-                    <h4 class="text-xl font-semibold mb-2">개발 배경 (문제점 및 필요성)</h4>
-                    <p class="text-stone-700 leading-relaxed mb-4">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg h-full">
+                    <h3 class="card-title-dark">🎯 개발 배경 및 목표</h3>
+                    <h4 class="text-xl font-semibold mb-2 text-gray-300">개발 배경 (문제점 및 필요성)</h4>
+                    <p class="text-content-dark leading-relaxed mb-4">
                         중고차 '성능·상태 점검기록부' 해독의 어려움과 정보 비대칭으로 인한 소비자 불안 문제를 AI 기술로 해결하고자 했습니다.
                     </p>
-                    <h4 class="text-xl font-semibold mb-2">주요 목표</h4>
-                    <ul class="list-disc list-inside text-stone-700 leading-relaxed ml-2">
+                    <h4 class="text-xl font-semibold mb-2 text-gray-300">주요 목표</h4>
+                    <ul class="list-disc list-inside text-content-dark leading-relaxed ml-2">
                         <li>성능기록부 자동 분석 및 'AI 위험도 점수' 제공</li>
                         <li>AI 모델을 활용한 맞춤형 중고차 추천</li>
                         <li>React와 Python/Flask를 연동하는 AI 웹 앱 개발</li>
@@ -110,12 +118,12 @@
             </div>
         </section>
 
-        <!-- (신규) Section: Skills -->
+        <!-- Section: Skills -->
         <section id="skills" class="pt-16 -mt-16">
             <h2 class="text-3xl font-bold text-center mb-8">🛠️ 전체 기술 스택</h2>
-            <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
                 <div class="mb-6">
-                    <h4 class="text-xl font-semibold text-gray-700 mb-3">프론트엔드</h4>
+                    <h4 class="text-xl font-semibold text-gray-300 mb-3">프론트엔드</h4>
                     <div>
                         <span class="skill-badge">React</span>
                         <span class="skill-badge">JavaScript (JSX)</span>
@@ -125,7 +133,7 @@
                     </div>
                 </div>
                 <div class="mb-6">
-                    <h4 class="text-xl font-semibold text-gray-700 mb-3">백엔드</h4>
+                    <h4 class="text-xl font-semibold text-gray-300 mb-3">백엔드</h4>
                     <div>
                         <span class="skill-badge">Python</span>
                         <span class="skill-badge">Flask</span>
@@ -134,7 +142,7 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-xl font-semibold text-gray-700 mb-3">Tools & Libraries</h4>
+                    <h4 class="text-xl font-semibold text-gray-300 mb-3">Tools & Libraries</h4>
                     <div>
                         <span class="skill-badge">Git</span>
                         <span class="skill-badge">Flask-CORS</span>
@@ -146,111 +154,100 @@
 
         <!-- Section 2: Solution (Architecture) -->
         <section id="solution" class="pt-16 -mt-16">
-            <h2 class="text-3xl font-bold text-center mb-4">💡 솔루션: AI 분석 아키텍처</h2>
-            <p class="text-lg text-center text-stone-600 mb-8 max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">💡 솔루션: AI 분석 아키텍처</h2>
+            <p class="text-lg text-center text-gray-300 mb-8 max-w-3xl mx-auto">
                 사용자가 React 프론트에서 파일을 업로드하면, Flask 백엔드가 이를 받아 Google AI/OCR로 전달합니다. 분석이 완료된 JSON 데이터를 다시 프론트로 보내 시각화합니다.
             </p>
             
             <!-- Architecture Flow Diagram (HTML/CSS Only) -->
-            <div class="bg-white p-6 rounded-lg shadow-lg overflow-x-auto">
-                <h3 class="text-xl font-bold text-center mb-6">아키텍처 워크플로우</h3>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg overflow-x-auto">
+                <h3 class="text-xl font-bold text-center mb-6 text-teal-400">아키텍처 워크플로우</h3>
                 <div class="flex flex-col md:flex-row items-center justify-center gap-2">
-                    <!-- (변경) border: emerald -> teal -->
-                    <div class="step-box border-teal-300">
+                    <div class="step-box border-teal-500">
                         <span class="text-2xl">🖥️</span>
-                        <h4 class="font-bold">1. Frontend (React)</h4>
-                        <p class="text-sm text-stone-500">파일 업로드, 챗봇 UI 제공<br/>(Fetch API로 통신)</p>
+                        <h4 class="font-bold text-gray-100">1. Frontend (React)</h4>
+                        <p class="text-sm text-gray-400">파일 업로드, 챗봇 UI 제공<br/>(Fetch API로 통신)</p>
                     </div>
                     <span class="step-arrow">&rarr;</span>
-                    <!-- (변경) border: blue -> teal -->
-                    <div class="step-box border-teal-300">
+                    <div class="step-box border-teal-500">
                         <span class="text-2xl">⚙️</span>
-                        <h4 class="font-bold">2. Backend (Flask)</h4>
-                        <p class="text-sm text-stone-500">/api/upload, /api/recommend<br/>API 엔드포인트</p>
+                        <h4 class="font-bold text-gray-100">2. Backend (Flask)</h4>
+                        <p class="text-sm text-gray-400">/api/upload, /api/recommend<br/>API 엔드포인트</p>
                     </div>
                     <span class="step-arrow">&rarr;</span>
-                    <!-- (변경) border: purple -> teal -->
-                    <div class="step-box border-teal-300">
-                        <span class="text-2xl">🤖</span>
-                        <h4 class="font-bold">3. AI/OCR (Google)</h4>
-                        <p class="text-sm text-stone-500">Document AI (OCR)<br/>+ Gemini AI (분석/추천)</p>
+                    <div class="step-box border-teal-500">
+                        <span class="text-2xl">🧠</span>
+                        <h4 class="font-bold text-gray-100">3. AI/OCR (Google)</h4>
+                        <p class="text-sm text-gray-400">Document AI (OCR)<br/>+ Gemini AI (분석/추천)</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- (수정) Section 3: 'features' -> 'project'로 ID 및 제목 변경 -->
+        <!-- Section 3: Project Details -->
         <section id="project" class="pt-16 -mt-16">
             <h2 class="text-3xl font-bold text-center mb-8">✨ 프로젝트 상세</h2>
             
             <!-- 주요 기능 -->
-            <h3 class="text-2xl font-bold text-center mb-6 text-teal-700">주요 기능 및 역할</h3>
+            <h3 class="text-2xl font-bold text-center mb-6 text-teal-400">주요 기능 및 역할</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
                 <!-- 핵심 기능 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
                     <span class="text-4xl">📊</span>
-                    <h3 class="text-xl font-bold mt-4 mb-2">성능기록부 자동 분석</h3>
-                    <p class="text-stone-600">PDF/이미지 업로드 시, Google AI가 사고 이력, 누유, 위험도 점수(0-100)가 포함된 상세 JSON 리포트를 생성합니다.</p>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-gray-100">성능기록부 자동 분석</h3>
+                    <p class="text-content-dark">PDF/이미지 업로드 시, Google AI가 사고 이력, 누유, 위험도 점수(0-100)가 포함된 상세 JSON 리포트를 생성합니다.</p>
                 </div>
                 <!-- 핵심 기능 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
                     <span class="text-4xl">🚗</span>
-                    <h3 class="text-xl font-bold mt-4 mb-2">AI 맞춤 추천 & 챗봇</h3>
-                    <p class="text-stone-600">라이프스타일 입력 시 AI가 최적 차량 3가지를 추천합니다. 또한, 생성된 리포트 기반 Q&A 챗봇 기능을 제공합니다.</p>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-gray-100">AI 맞춤 추천 & 챗봇</h3>
+                    <p class="text-content-dark">라이프스타일 입력 시 AI가 최적 차량 3가지를 추천합니다. 또한, 생성된 리포트 기반 Q&A 챗봇 기능을 제공합니다.</p>
                 </div>
-                <!-- (카드 3 수정) 나의 역할: <p> -> <ul> 로 변경 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <!-- 나의 역할 (변경) md:col-span-2 추가 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 h-full md:col-span-2">
                     <span class="text-4xl">🧑‍💻</span>
-                    <h3 class="text-xl font-bold mt-4 mb-2">나의 역할 및 기여</h3>
-                    <!-- (수정) <p> 태그 대신 <ul> 태그를 사용하여 구조화 -->
-                    <ul class="list-disc list-inside text-stone-600 space-y-2 mt-4">
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-gray-100">나의 역할 및 기여</h3>
+                    <ul class="list-disc list-inside text-content-dark space-y-2 mt-4">
                         <li>React 프론트엔드 UI/UX 설계</li>
                         <li>Python/Flask 백엔드 API 구축</li>
                         <li>Google AI(OCR/Gemini) 연동</li>
                         <li>프롬프트 엔지니어링 수행</li>
                     </ul>
                 </div>
-                <!-- (삭제) 기술 스택 카드는 'skills' 섹션으로 이동됨 -->
             </div>
 
             <!-- 성과 및 향후 계획 -->
-            <h3 class="text-2xl font-bold text-center mb-6 text-teal-700">성과 및 향후 계획</h3>
+            <h3 class="text-2xl font-bold text-center mb-6 text-teal-400">성과 및 향후 계획</h3>
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Impact Card (결과 및 성과) -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <!-- (변경) blue -> teal -->
-                    <h3 class="text-2xl font-bold mb-4 text-teal-700">📈 개발 성과 (파급 효과)</h3>
-                    <p class="text-lg text-stone-700">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg h-full">
+                    <h3 class="card-title-dark">📈 개발 성과</h3>
+                    <p class="text-lg text-gray-300">
                         복잡한 성능기록부를 'AI 위험도 점수'와 '예측 시세'가 포함된 직관적인 리포트로 자동 변환하는 시스템을 구축했습니다.
                     </p>
-                    <ul class="list-disc list-inside text-stone-700 leading-relaxed ml-2 mt-3 space-y-2">
+                    <ul class="list-disc list-inside text-content-dark leading-relaxed ml-2 mt-3 space-y-2">
                         <li>OCR, 맞춤형 추천, Q&A 챗봇 3가지 핵심 AI 기능 통합</li>
                         <li>React와 Python/Flask 연동 AI 웹 앱 개발 완료</li>
                     </ul>
                 </div>
                 <!-- Future Plans Card (회고 및 개선점) -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <!-- (변경) emerald -> teal -->
-                    <h3 class="text-2xl font-bold mb-4 text-teal-700">📅 향후 계획 (개선점)</h3>
-                    <p class="text-lg text-stone-700">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg h-full">
+                    <h3 class="card-title-dark">📅 향후 계획</h3>
+                    <p class="text-lg text-gray-300">
                         MVP 개발 완료 후, 서비스 안정성 및 사용자 편의를 높이기 위한 기능을 추가할 예정입니다:
-                    </p>
-                    <ul class="list-disc list-inside text-stone-700 leading-relaxed ml-2 mt-3 space-y-2">
-                        <!-- (변경) blue -> teal -->
-                        <li><strong class="text-teal-600">챗봇 세션(History) 도입:</strong> AI가 이전 대화 내용을 기억하도록 개선.</li>
-                        <!-- (변경) emerald -> teal -->
-                        <li><strong class="text-teal-600">OCR 오류 보정 고도화:</strong> 다양한 양식에 대응하는 오류 보정 로직 강화.</li>
+                    </D>
+                    <ul class="list-disc list-inside text-content-dark leading-relaxed ml-2 mt-3 space-y-2">
+                        <li><strong class="text-teal-300">챗봇 세션(History) 도입:</strong> AI가 이전 대화 내용을 기억하도록 개선.</li>
+                        <li><strong class="text-teal-300">OCR 오류 보정 고도화:</strong> 다양한 양식에 대응하는 오류 보정 로직 강화.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- (삭제) Section 4: Future Plans -> 'project' 섹션으로 통합됨 -->
-
     </main>
 
-    <!-- (변경) Footer: bg-stone-800 -> bg-gray-800 -->
-    <footer class="bg-gray-800 text-gray-300 py-8 mt-16 rounded-lg">
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 mt-16 rounded-lg">
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2025 김영준. All rights reserved.</p>
         </div>
@@ -258,9 +255,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Lucide 아이콘 생성
-            lucide.createIcons();
-
             // --- 스크롤 스파이 및 부드러운 스크롤 로직 ---
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('section[id]');
@@ -269,18 +263,15 @@
                 let currentActiveId = null;
 
                 entries.forEach(entry => {
-                    // (수정) 뷰포트 상단에 더 가깝게 교차하는 항목을 우선으로
                     if (entry.isIntersecting && (currentActiveId === null || entry.boundingClientRect.top >= 0)) {
                         currentActiveId = entry.target.id;
                     }
                 });
 
-                // 스크롤이 맨 위에 있을 때 '소개'를 강제로 활성화
-                if (window.scrollY < 300) { // 임계값 조정
+                if (window.scrollY < 300) {
                      currentActiveId = "intro";
                 }
                 
-                // (추가) 스크롤이 맨 아래에 있을 때 '프로젝트'를 강제로 활성화
                 if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
                      currentActiveId = "project";
                 }
@@ -309,7 +300,7 @@
             // 내비게이션 클릭 시 부드러운 스크롤
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    // 'active' 상태 즉시 업데이트
+                    // e.preventDefault(); // This is handled by smooth scroll behavior
                     navLinks.forEach(nav => nav.classList.remove('active'));
                     link.classList.add('active');
                 });
